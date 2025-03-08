@@ -6,10 +6,12 @@ workflows:
       flutter: stable
       xcode: latest
       vars:
-        # Your Apple Developer Team ID (found in your Apple Developer account)
+        # Your Apple Developer Team ID (from your Apple Developer account)
         APPLE_DEVELOPER_TEAM: "YOUR_TEAM_ID"
-        # Export method: choose one of "development", "ad-hoc", "app-store", or "enterprise"
-        IOS_EXPORT_METHOD: "ad-hoc"
+        # Export method must be "app-store" for TestFlight/App Store distribution
+        IOS_EXPORT_METHOD: "app-store"
+        # Set your app's bundle identifier; ensure this matches your Xcode project settings
+        BUNDLE_ID: "com.example.app"
     scripts:
       - name: Install Flutter Dependencies
         script: flutter pub get
@@ -28,4 +30,6 @@ workflows:
         - ios/Pods
     publishing:
       app_store_connect:
-        apple_id: "castielwayne2@gmail.com"
+        auth:
+          apple_id: "castielwayne2@gmail.com"
+          password: "120856482ApM."
