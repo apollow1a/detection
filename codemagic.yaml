@@ -2,10 +2,6 @@ workflows:
   flutter-ios:
     name: Advanced iOS Build & Deploy
     max_build_duration: 60
-    inputs:
-      app_store_integration:
-        description: "Name of your App Store Connect integration"
-        default: "my_app_store_integration"
     environment:
       flutter: stable
       xcode: latest
@@ -30,7 +26,7 @@ workflows:
         - ~/.pub-cache
         - ios/Pods
     integrations:
-      app_store_connect: ${{ inputs.app_store_integration }}
+      app_store_connect: "integration"
     publishing:
       app_store_connect:
-        auth: ${{ inputs.app_store_integration }}
+        auth: "integration"
