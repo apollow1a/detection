@@ -1,0 +1,33 @@
+workflows:
+  flutter-ios:
+    name: Advanced iOS Build & Deploy
+    max_build_duration: 60
+    environment:
+      flutter: stable
+      xcode: latest
+      vars:
+        # Your Apple Developer Team ID (found in your Apple Developer account)
+        APPLE_DEVELOPER_TEAM: "YOUR_TEAM_ID"
+        # Export method: choose one of "development", "ad-hoc", "app-store", or "enterprise"
+        IOS_EXPORT_METHOD: "ad-hoc"
+    scripts:
+      - name: Install Flutter Dependencies
+        script: flutter pub get
+      - name: Install CocoaPods Dependencies
+        script: |
+          cd ios
+          pod install
+          cd ..
+      - name: Build IPA
+        # flutter build ipa is the newer command that creates a signed IPA file
+        script: flutter build ipa --export-method $IOS_EXPORT_METHOD
+    artifacts:
+      - build/ios/ipa/*.ipa
+    caching:
+      paths:
+        - ~/.pub-cache
+        - ios/Pods
+    publishing:
+      # Optional: Automatically upload your build to TestFlight.
+      testflight:
+        apple_id: "castielwayne2@gmail.com"
