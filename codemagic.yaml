@@ -26,8 +26,7 @@ workflows:
         - ~/.pub-cache
         - ios/Pods
     integrations:
-      app_store_connect: "integration"
+      app_store_connect: "my_app_store_integration"
     publishing:
       app_store_connect:
-        auth: "integration"
-
+        auth: "my_app_store_integration"
