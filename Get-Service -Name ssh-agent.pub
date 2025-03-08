@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPSix28+zB0Q9ICgloXMulB6HBQE5HH7CVsRMSaNV3C4 your_email@example.com
+=======
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPSix28+zB0Q9ICgloXMulB6HBQE5HH7CVsRMSaNV3C4 your_email@example.com
+>>>>>>> e4758b9 (Your commit message)

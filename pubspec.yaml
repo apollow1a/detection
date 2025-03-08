@@ -1,0 +1,41 @@
+name: my_object_detection_app
+description: A Flutter project for real-time object detection using TFLite and camera.
+publish_to: 'none' # This prevents accidental publishing to pub.dev.
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # Provides access to device cameras.
+  camera: ^0.9.4+5
+  # Enables running TensorFlow Lite models.
+  tflite: ^1.1.2
+  # Useful for state management.
+  provider: ^6.0.5
+  # Provides commonly used paths on the device.
+  path_provider: ^2.0.11
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+
+  # Declare assets that your app requires.
+  assets:
+    - assets/model.tflite
+    - assets/labels.txt
+
+  # Optional: Uncomment and configure fonts if needed.
+  # fonts:
+  #   - family: OpenSans
+  #     fonts:
+  #       - asset: fonts/OpenSans-Regular.ttf
+  #       - asset: fonts/OpenSans-Bold.ttf
+  #         weight: 700
