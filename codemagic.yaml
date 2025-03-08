@@ -30,6 +30,4 @@ workflows:
         - ios/Pods
     publishing:
       app_store_connect:
-        auth:
-          apple_id: "castielwayne2@gmail.com"
-          password: "120856482ApM."
+        auth: integration
