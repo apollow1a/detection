@@ -1,3 +1,8 @@
+inputs:
+  app_store_connect_integration:
+    description: "Name of the App Store Connect integration"
+    default: "MyAppStoreIntegration"
+
 workflows:
   flutter-ios:
     name: Advanced iOS Build & Deploy
@@ -6,7 +11,7 @@ workflows:
       flutter: stable
       xcode: latest
       vars:
-        APPLE_DEVELOPER_TEAM: "YOUR_TEAM_ID"
+        APPLE_DEVELOPER_TEAM: "YOUR_TEAM_ID"  # Replace with your actual Team ID
         IOS_EXPORT_METHOD: "app-store"
         BUNDLE_ID: "com.example.app"
     scripts:
@@ -26,8 +31,7 @@ workflows:
         - ~/.pub-cache
         - ios/Pods
     integrations:
-      app_store_connect: "integration"
+      app_store_connect: ${{ inputs.app_store_connect_integration }}
     publishing:
       app_store_connect:
-        auth: "integration"
-
+        auth: ${{ inputs.app_store_connect_integration }}
